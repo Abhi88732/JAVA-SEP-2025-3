@@ -2,17 +2,14 @@ package com.SpringBootProject.DTO;
 
 import com.SpringBootProject.Entity.Status;
 import lombok.*;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 
 import java.time.LocalDate;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
-public class TripDTO {
-    private Integer id;
+public class TripDTOWithOutId {
     private String destination;
     private LocalDate startDate;
     private LocalDate endDate;
