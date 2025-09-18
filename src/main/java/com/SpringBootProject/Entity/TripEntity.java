@@ -5,18 +5,16 @@ import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
-import lombok.Getter;
-import lombok.Setter;
-
-import java.sql.Date;
+import lombok.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name="Trip")
 @Setter
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class TripEntity {
-
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name="id")

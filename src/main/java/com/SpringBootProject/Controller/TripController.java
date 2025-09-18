@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name="Trip APIs",description = "APIs For Managing Trips")
 public class TripController {
      public final TripService tripService;
-
      @Operation(summary = "Create Trip",description = "Add a new trip")
      @PostMapping
      public TripDTO CreateTrip(@Valid @RequestBody TripDTOWithOutId tripDTOWithOutId) {
