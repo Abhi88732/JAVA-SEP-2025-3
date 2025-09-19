@@ -1,0 +1,301 @@
+{
+	"info": {
+		"_postman_id": "445d17c2-e74a-4adc-a51d-6231de5d28fb",
+		"name": "TripAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48426173",
+		"_collection_link": "https://abhisheksony35922-8057588.postman.co/workspace/Abhishek-Soni's-Workspace~dca539df-a080-4308-8421-a8977dacfb15/collection/48426173-445d17c2-e74a-4adc-a51d-6231de5d28fb?action=share&source=collection_link&creator=48426173"
+	},
+	"item": [
+		{
+			"name": "Get a paginated and sorted list of all trips",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/trips?page=0&size=5&sort=startDate,asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "5"
+						},
+						{
+							"key": "sort",
+							"value": "startDate,asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Return details of a single trip",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"destination\": \"Paris\",\r\n  \"startDate\": \"2025-09-10\",\r\n  \"endDate\": \"2025-09-20\",\r\n  \"price\": 1500.0,\r\n  \"status\": \"PLANNED\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/trips/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updates the trip with the given ID",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"destination\": \"India\",\r\n  \"startDate\": \"2025-10-24\",\r\n  \"endDate\": \"2025-10-30\",\r\n  \"price\": 15000.00,\r\n  \"status\": \"PLANNED\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/trips/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creates a new trip",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"destination\": \"Paris\",\r\n  \"startDate\": \"2025-09-10\",\r\n  \"endDate\": \"2025-09-20\",\r\n  \"price\": 1500.0,\r\n  \"status\": \"PLANNED\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/trips",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips"
+					]
+				},
+				"description": "Create a Trip"
+			},
+			"response": []
+		},
+		{
+			"name": "Deletes the trip with the given ID",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"destination\": \"India\",\r\n  \"startDate\": \"2025-10-24\",\r\n  \"endDate\": \"2025-10-30\",\r\n  \"price\": 15000.00,\r\n  \"status\": \"PLANNED\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/trips/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search the trip with the given destination",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"destination\": \"India\",\r\n  \"startDate\": \"2025-10-24\",\r\n  \"endDate\": \"2025-10-30\",\r\n  \"price\": 15000.00,\r\n  \"status\": \"PLANNED\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/trips/search?destination=London",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips",
+						"search"
+					],
+					"query": [
+						{
+							"key": "destination",
+							"value": "London"
+						}
+					]
+				},
+				"description": "Search Using destination"
+			},
+			"response": []
+		},
+		{
+			"name": "Returns trips filtered by status (PLANNED,ONGOING,COMPLETED)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/trips/filter?status=ONGOING",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "ONGOING"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Returns total trips, minimum price, maximum price , average price.",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"destination\": \"Paris\",\r\n  \"startDate\": \"2025-09-10\",\r\n  \"endDate\": \"2025-09-20\",\r\n  \"price\": 1500.0,\r\n  \"status\": \"PLANNED\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/trips/summary",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips",
+						"summary"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Trips Between Dates",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"destination\": \"Paris\",\r\n  \"startDate\": \"2025-09-10\",\r\n  \"endDate\": \"2025-09-20\",\r\n  \"price\": 1500.0,\r\n  \"status\": \"PLANNED\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/trips/daterange?startDate=2025-09-15&endDate=2025-09-25",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips",
+						"daterange"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2025-09-15"
+						},
+						{
+							"key": "endDate",
+							"value": "2025-09-25"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
