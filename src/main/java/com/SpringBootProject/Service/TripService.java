@@ -33,12 +33,12 @@ public class TripService {
     }
 
     public TripDTO GetTripByID(Integer id) {
-        TripEntity tripEntity = tripRespository.findById(id).orElseThrow(()->new IllegalArgumentException("This"+id+"Does't exits"));
+        TripEntity tripEntity = tripRespository.findById(id).orElseThrow(()->new IllegalArgumentException("This "+id+" Does't exits"));
         return mapperConfig.getModelMapper().map(tripEntity,TripDTO.class);
     }
 
     public TripDTO TripUpdateAll(Integer id, TripDTOWithOutId tripDTOWithOutId) {
-        TripEntity tripEntity=tripRespository.findById(id).orElseThrow(()->new IllegalArgumentException("This"+id+"Does't exits"));
+        TripEntity tripEntity=tripRespository.findById(id).orElseThrow(()->new IllegalArgumentException("This "+id+" Does't exits"));
         mapperConfig.getModelMapper().map(tripDTOWithOutId,tripEntity);
         tripEntity= tripRespository.save(tripEntity);
         return mapperConfig.getModelMapper().map(tripEntity,TripDTO.class);
@@ -46,7 +46,7 @@ public class TripService {
 
     public void TripDelete(Integer id) {
             if(!tripRespository.existsById(id)){
-                throw new IllegalArgumentException("This"+id+"Does't exits");
+                throw new IllegalArgumentException("This "+id+" Does't exits");
             }
             tripRespository.deleteById(id);
         }
